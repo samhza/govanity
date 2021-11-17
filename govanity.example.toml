@@ -1,0 +1,18 @@
+# the base name all modules are on
+Base = "example.com"
+
+# fallback URL for modules not present in [Modules]
+# go get example.com/baz -> git.example.com/baz.git
+Fallback = "git https://git.example.com/%.git"
+
+# module path = module source
+[Modules]
+# go get example.com/foo -> git.example.com/go-foo.git
+"foo" = "git https://git.example.com/go-foo.git"
+# go get example.com/foo/qux -> git.example.com/foo-qux.git
+"foo/qux" = "git https://git.example.com/foo-qux.git"
+
+# govanity listens to http requests on a unix socket.
+# Set up a reverse proxy on your webserver to this socket.
+SocketPath = "/tmp/govanity.sock"
+SocketPerm = "0777" # octal number
